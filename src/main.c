@@ -23,21 +23,14 @@ int main (void)
 	int fd;
 
 	fd = open(file, O_RDONLY);
-	//printf("%d\n", fd);
-	//printf("%s\n", get_next_line(fd));
-
-	// while(1)
-	// {
+	while(1)
+	{
 		str = get_next_line(fd);
-		// if (str == NULL)
-		// 	break;
-		// int i = 0;
-		// while(str[i])
-		// 	printf("%c\n", str[i++]);
 		printf("%s", str);
-		//free(str);
-	// }
-	
+		if (str == NULL)
+			break;
+		free(str);
+	}
 	close(fd);
 	return (0);
 }
