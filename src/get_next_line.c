@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:51 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/06/22 19:02:48 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:11:35 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*get_next_line(int fd)
 {
-	static char 	*buffer;
+	static char 	*line;
 
-	if (fd <0 || BUFFER_SIZE <= 0 || read(fd, &buffer, 0) < 0)
+	if (fd <0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return NULL;
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
+	line = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!line)
 		return NULL;
 	// verificar se o fd passado tem conteúdo
-	if (read(fd, buffer, BUFFER_SIZE) == 0) 
+	if (read(fd, line, BUFFER_SIZE) == 0) 
 		return NULL;
 	// buffer[BUFFER_SIZE + 1] = 0;
-	return buffer;
+	return (line);
 }
