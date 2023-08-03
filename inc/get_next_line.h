@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:53 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/06/27 17:55:34 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/03 17:32:23 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+
+typedef struct s_list
+{
+	char			*content;
+	struct s_list	*next;
+}	t_list;
 
 char	*get_next_line(int fd);
 
