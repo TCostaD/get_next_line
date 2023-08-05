@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:53 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 16:06:15 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/05 18:08:26 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 char	*get_next_line(int fd);
 char	*reader(char *st_line, int fd);
-char	*get_line(char *st_line);
+char	*obtain_line(char *st_line);
 char	*trim(char *st_line);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *str, int c);

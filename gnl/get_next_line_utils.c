@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:48 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 16:16:56 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/05 17:56:05 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char	*ft_strjoin(char *s1, char const *s2)
 		s1 = (char *)malloc(sizeof(char));
 		s1[0] = '\0';
 	}
+	if (!s1 || !s2)
+		return (NULL);
 	end = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (end == NULL)
 		return (NULL);
@@ -65,5 +67,6 @@ char	*ft_strjoin(char *s1, char const *s2)
 	while (s2[++j] != '\0')
 		end[i + j] = s2[j];
 	end[i + j] = '\0';
+	free(s1);
 	return (end);
 }

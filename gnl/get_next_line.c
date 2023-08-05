@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:51 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 16:05:35 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/05 18:14:04 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ char	*reader(char *st_line, int fd)
 		if (bytes_read == -1)
 		{
 			free(buffer);
+			free(st_line);
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
@@ -36,7 +37,7 @@ char	*reader(char *st_line, int fd)
 	return (st_line);
 }
 
-char	*get_line(char *st_line)
+char	*obtain_line(char *st_line)
 {
 	char	*line;
 	int		i;
@@ -46,7 +47,7 @@ char	*get_line(char *st_line)
 		return (NULL);
 	while (st_line[i] != '\n' && st_line[i] != '\0')
 		i++;
-	line = (char *)malloc((i + 1) * sizeof(char));
+	line = (char *)malloc((i + 2) * sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -55,6 +56,8 @@ char	*get_line(char *st_line)
 		line[i] = st_line[i];
 		i++;
 	}
+	if (st_line[i] == '\n')
+		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
 }
@@ -95,7 +98,7 @@ char	*get_next_line(int fd)
 	st_line = reader(st_line, fd);
 	if (!st_line)
 		return (NULL);
-	line = get_line(st_line);
+	line = obtain_line(st_line);
 	st_line = trim(st_line);
 	return (line);
 }
