@@ -57,7 +57,7 @@ char	*get_line(char *st_line)
 	int		i;
 
 	i = 0;
-	if (st_line == '\0')
+	if (*st_line == '\0')
 		return (NULL);
 	while (st_line[i] != '\n' && st_line[i] != '\0')
 		i++;
