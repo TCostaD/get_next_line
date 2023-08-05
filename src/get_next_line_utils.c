@@ -6,12 +6,12 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:48 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 14:24:14 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/05 14:27:31 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
- 
+
 size_t	ft_strlen(const char *s)
 {
 	int	i;
