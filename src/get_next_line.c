@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:17:51 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/03 17:34:57 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/08/05 14:22:02 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_next_line(int fd)
 	
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &st_line, 0) < 0)
 		return (0);
-	st_line = reader(st_line, fd)
+	st_line = reader(st_line, fd);
 	if (!st_line)
 		return (NULL);
 	line = get_line(st_line);
