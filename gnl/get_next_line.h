@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 17:40:21 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 14:34:13 by tcosta-d         ###   ########.fr       */
+/*   Created: 2023/06/14 18:17:53 by tcosta-d          #+#    #+#             */
+/*   Updated: 2023/08/05 16:06:15 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int main (void)
-{
-	char *file;
-	char *str;
-	file = "text2.txt";
-	int fd;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	fd = open(file, O_RDONLY);
-//	while(1)
-//	{
-		str = get_next_line(fd);
-		printf("%s", str);
-//		if (str == NULL)
-//			break;
-		free(str);
-//	}
-	close(fd);
-	return (0);
-}
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
+char	*reader(char *st_line, int fd);
+char	*get_line(char *st_line);
+char	*trim(char *st_line);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strjoin(char *s1, char const *s2);
+
+#endif

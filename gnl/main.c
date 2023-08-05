@@ -5,32 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/22 17:40:21 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/08/05 14:34:13 by tcosta-d         ###   ########.fr       */
+/*   Created: 2023/08/05 14:51:46 by tcosta-d          #+#    #+#             */
+/*   Updated: 2023/08/05 16:20:40 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/get_next_line.h"
+#include "get_next_line.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
 
-int main (void)
+int	main(void)
 {
-	char *file;
-	char *str;
-	file = "text2.txt";
-	int fd;
+	int		fd;
+	char	*line;
 
-	fd = open(file, O_RDONLY);
-//	while(1)
-//	{
-		str = get_next_line(fd);
-		printf("%s", str);
-//		if (str == NULL)
-//			break;
-		free(str);
-//	}
+	fd = open("txt/ptprince.txt", O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
+	{
+		printf("%s\n", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
 	close(fd);
 	return (0);
 }
