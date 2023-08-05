@@ -20,7 +20,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-
 typedef struct s_list
 {
 	char			*content;
@@ -28,5 +27,11 @@ typedef struct s_list
 }	t_list;
 
 char	*get_next_line(int fd);
+char	*reader(char *st_line, int fd);
+char	*get_line(char *st_line);
+char	*trim(char *st_line);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

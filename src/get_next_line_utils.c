@@ -10,7 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "..\inc\get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -23,27 +33,6 @@ char	*ft_strchr(const char *str, int c)
 			return (NULL);
 		ptr++;
 	}
-	return (ptr);
-}
-
-char	*ft_strdup(const char *str)
-{
-	char	*ptr;
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	ptr = (char *)malloc((i + 1) * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		ptr[i] = str[i];
-		i++;
-	}
-	ptr[i] = 0;
 	return (ptr);
 }
 
