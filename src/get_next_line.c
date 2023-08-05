@@ -17,14 +17,14 @@ char	*get_next_line(int fd)
 	static char	*st_line;
 	char		*line;
 	
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &st_line, 0) < 0
 		return (0);
 	st_line = reader(st_line, fd)
 	if (!st_line)
 		return (NULL);
 	line = get_line(st_line);
 	st_line = trim(st_line);
-	return (line)
+	return (line);
 }
 
 char	*reader(char *st_line, int fd)
