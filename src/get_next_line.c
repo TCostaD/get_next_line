@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*st_line;
+	static char	*st_line = NULL;
 	char		*line;
 	
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &st_line, 0) < 0
